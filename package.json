@@ -11,5 +11,9 @@
     "upload"
   ],
   "author": "Sho Hashimoto <hashimoto@shokai.org>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "chokidar": "^1.6.0",
+    "gyazo-api": "^0.3.0"
+  }
 }
