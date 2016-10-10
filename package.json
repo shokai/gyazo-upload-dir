@@ -7,7 +7,11 @@
     "gyazo-upload-dir": "bin/app.js"
   },
   "scripts": {
-    "test": "standard"
+    "build": "babel src/ --out-dir lib/ --source-maps inline",
+    "watch": "npm run build -- --watch",
+    "standard": "standard",
+    "test": "npm run standard",
+    "clean": "rm -rf lib/"
   },
   "keywords": [
     "gyazo",
