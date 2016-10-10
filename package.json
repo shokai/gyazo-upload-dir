@@ -4,7 +4,7 @@
   "description": "watch directory and upload images to gyazo",
   "main": "upload-gyazo.js",
   "bin": {
-    "gyazo-upload-dir": "bin/app.js"
+    "gyazo-upload-dir": "bin/cli.js"
   },
   "scripts": {
     "build": "babel src/ --out-dir lib/ --source-maps inline",
