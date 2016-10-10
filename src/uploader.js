@@ -20,7 +20,7 @@ export default class Uploader extends EventEmitter {
 
   onAdd (path, stat) {
     if (stat) return
-    this.onNewFile(path)
+    setTimeout(() => this.onNewFile(path), 3000)
   }
 
   onNewFile (source) {
