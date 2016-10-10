@@ -6,7 +6,6 @@ import pkg from '../package.json'
 export function start (_argv) {
   const argv = minimist(_argv, {
     boolean: [ 'help' ],
-    string: [ 'dir' ],
     alias: {
       'help': 'h',
       'dir': 'd'
@@ -14,16 +13,21 @@ export function start (_argv) {
   });
   if (argv.help) {
     console.log(banner)
+    process.exit(0)
   }
-  if (typeof argv.dir !== 'string' || !argv.dir) {
+  if (typeof argv.dir !== 'string') {
     console.error('--dir is missing')
     process.exit(1)
   }
-
-  const dir = argv['dir']
-  console.log('watch', dir)
-  const accessToken = process.env.GYAZO_ACCESS_TOKEN
-  const uploader = new Uploader({dir, accessToken})
+  console.log('watch', argv.dir)
+  if (!process.env.GYAZO_ACCESS_TOKEN) {
+    console.error('GYAZO_ACCESS_TOKEN is missing')
+    process.exit(1)
+  }
+  const uploader = new Uploader({
+    dir: argv.dir,
+    accessToken: process.env.GYAZO_ACCESS_TOKEN
+  })
   uploader.startWatch()
   uploader.on('error', err => console.error(err.stack || err))
   uploader.on('upload', source => console.log(`upload\t${source}`))
