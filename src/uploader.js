@@ -12,6 +12,7 @@ export default class Uploader extends EventEmitter {
 
   startWatch () {
     this.watcher = watch(this.dir, {
+      ignoreInitial: true
     })
     this.watcher
       .on('add', this.onAdd)
@@ -19,7 +20,7 @@ export default class Uploader extends EventEmitter {
   }
 
   onAdd (path, stat) {
-    if (stat) return
+    if (!(/\.(jpe?g|gif|png)$/i.test(path))) return
     setTimeout(() => this.onNewFile(path), 3000)
   }
 
