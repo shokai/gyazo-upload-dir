@@ -8,24 +8,24 @@ export function start (_argv) {
     boolean: [ 'help' ],
     alias: {
       'help': 'h',
-      'dir': 'd'
+      'watch': 'w'
     }
   });
   if (argv.help) {
     console.log(banner)
     process.exit(0)
   }
-  if (typeof argv.dir !== 'string') {
-    console.error('--dir is missing')
+  if (typeof argv.watch !== 'string') {
+    console.error('--watch is missing')
     process.exit(1)
   }
-  console.log('watch', argv.dir)
+  console.log('watch', argv.watch)
   if (!process.env.GYAZO_ACCESS_TOKEN) {
     console.error('GYAZO_ACCESS_TOKEN is missing')
     process.exit(1)
   }
   const uploader = new Uploader({
-    dir: argv.dir,
+    dir: argv.watch,
     accessToken: process.env.GYAZO_ACCESS_TOKEN
   })
   uploader.startWatch()
@@ -40,9 +40,9 @@ export function start (_argv) {
 const banner = `${pkg.name} v${pkg.version} - ${pkg.homepage}
 
 Usage:
-  % ${pkg.name} --dir ~/Dropbox/
+  % ${pkg.name} --watch ~/Dropbox/
 
 Options:
   --help   show help
-  --dir    set directory
+  --watch  directory to watch
 `

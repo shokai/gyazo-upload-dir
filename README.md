@@ -21,4 +21,4 @@ watch directory and upload images to gyazo
 ## Run
 
     % export GYAZO_ACCESS_TOKEN=a1b2cdef34569ayfe8wouhef082u4hrp94
-    % gyazo-upload-dir -d ~/Dropbox/
+    % gyazo-upload-dir --watch ~/Dropbox/
