@@ -10,7 +10,7 @@ export function start (_argv) {
       'help': 'h',
       'watch': 'w'
     }
-  });
+  })
   if (argv.help) {
     console.log(banner)
     process.exit(0)
