@@ -27,5 +27,13 @@
   },
   "devDependencies": {
     "standard": "^8.3.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shokai/gyazo-upload-dir.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shokai/gyazo-upload-dir/issues"
+  },
+  "homepage": "https://github.com/shokai/gyazo-upload-dir#readme"
 }
